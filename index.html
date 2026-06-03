@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudyFlow | Mini Capstone Project</title>
+    <meta
+      name="description"
+      content="A Mini Capstone software project: an interactive study planner and homework tracker."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#app" aria-label="StudyFlow home">
+        <span class="brand-mark" aria-hidden="true">SF</span>
+        <span>StudyFlow</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#app">App</a>
+        <a href="#goal">Goal</a>
+        <a href="#research">Research</a>
+        <a href="#criteria">Criteria</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="app" class="app-shell">
+        <div class="app-intro">
+          <p class="eyebrow">Working software product</p>
+          <h1>StudyFlow helps track homework before it becomes overwhelming.</h1>
+          <p>
+            This capstone product is a small study planner. It lets a user add school tasks, set
+            priority, mark work complete, filter the list, and see progress update instantly.
+          </p>
+          <div class="demo-note">
+            <strong>Demo move:</strong>
+            Add one assignment, set it to high priority, then mark it complete to show the progress bar change.
+          </div>
+        </div>
+
+        <section class="planner" aria-label="Interactive study planner">
+          <div class="planner-top">
+            <div>
+              <p class="eyebrow">Live demo</p>
+              <h2>Homework tracker</h2>
+            </div>
+            <button class="text-button" type="button" id="reset-demo">Reset demo</button>
+          </div>
+
+          <form class="task-form" id="task-form">
+            <label>
+              <span>Task</span>
+              <input id="task-title" name="title" type="text" placeholder="Finish science lab" required />
+            </label>
+            <label>
+              <span>Course</span>
+              <select id="task-course" name="course">
+                <option>English</option>
+                <option>Math</option>
+                <option>Science</option>
+                <option>CLE</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              <span>Due date</span>
+              <input id="task-date" name="date" type="date" />
+            </label>
+            <label>
+              <span>Priority</span>
+              <select id="task-priority" name="priority">
+                <option>Medium</option>
+                <option>High</option>
+                <option>Low</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">Add task</button>
+          </form>
+
+          <div class="progress-row" aria-label="Completion progress">
+            <div>
+              <span id="progress-label">0 of 0 complete</span>
+              <strong id="progress-percent">0%</strong>
+            </div>
+            <div class="progress-track">
+              <span id="progress-fill"></span>
+            </div>
+          </div>
+
+          <div class="filter-row" role="group" aria-label="Task filters">
+            <button class="filter-button active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="open">Open</button>
+            <button class="filter-button" type="button" data-filter="done">Done</button>
+            <button class="filter-button" type="button" data-filter="high">High priority</button>
+          </div>
+
+          <ul class="task-list" id="task-list" aria-live="polite"></ul>
+        </section>
+      </section>
+
+      <section id="goal" class="section goal-section">
+        <div class="section-heading">
+          <p class="eyebrow">Capstone goal</p>
+          <h2>Build a useful school tool that solves a real organization problem.</h2>
+          <p>
+            The goal is to design, build, test, and present an interactive homework tracker that
+            helps a student manage tasks by course, due date, priority, and completion status.
+          </p>
+        </div>
+        <div class="goal-grid">
+          <article>
+            <h3>Problem</h3>
+            <p>Assignments from different classes can be hard to remember and prioritize.</p>
+          </article>
+          <article>
+            <h3>Product</h3>
+            <p>A browser-based planner that stores tasks and shows visible progress.</p>
+          </article>
+          <article>
+            <h3>Impact</h3>
+            <p>Make schoolwork feel more manageable by turning a messy list into clear next steps.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="research" class="section research-section">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Research</p>
+          <h2>The build used research about web structure, design, interaction, and local storage.</h2>
+        </div>
+        <div class="research-list">
+          <article>
+            <h3>HTML</h3>
+            <p>Used for form fields, labels, buttons, sections, and the task list structure.</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noreferrer">MDN HTML</a>
+          </article>
+          <article>
+            <h3>CSS</h3>
+            <p>Used for layout, responsive design, visual hierarchy, spacing, and readable states.</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer">MDN CSS</a>
+          </article>
+          <article>
+            <h3>JavaScript</h3>
+            <p>Used to add tasks, filter tasks, save data, update progress, and handle clicks.</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank" rel="noreferrer">MDN JavaScript</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="criteria" class="section criteria-section">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Success criteria</p>
+          <h2>The final product can be judged by whether it works for a real user.</h2>
+        </div>
+        <div class="criteria-table" aria-label="Success criteria table">
+          <div class="criteria-head">Criteria</div>
+          <div class="criteria-head">Evidence</div>
+          <div>User can add a new task with course, date, and priority.</div>
+          <div>The form creates a new card in the task list.</div>
+          <div>User can mark a task complete and see progress change.</div>
+          <div>The progress bar and completion count update immediately.</div>
+          <div>User can filter tasks by status or high priority.</div>
+          <div>The filter buttons change which tasks are visible.</div>
+          <div>The design is understandable on desktop and mobile.</div>
+          <div>The layout uses responsive grids and clear labels.</div>
+        </div>
+      </section>
+
+      <section id="reflection" class="section reflection-section">
+        <div class="reflection-layout">
+          <div>
+            <p class="eyebrow">Reflection</p>
+            <h2>Changing the topic made the outcome easier to demonstrate.</h2>
+          </div>
+          <div class="reflection-copy">
+            <p>
+              A study planner is easier to present because the audience can immediately see the
+              problem, test the product, and judge whether the solution works.
+            </p>
+            <p>
+              The next improvement would be adding categories such as "Today", "This week", and
+              "Overdue", then testing the planner with classmates for feedback.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>StudyFlow Mini Capstone</span>
+      <span>Interactive study planner and homework tracker</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
